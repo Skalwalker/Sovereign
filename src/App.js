@@ -1,27 +1,28 @@
-import React from 'react';
+import React from 'react'
 import NavBar from './components/NavBar'
 import MasterHead from './components/MasterHead'
 import About from './components/About'
 import Projects from './components/Projects'
 import SignUp from './components/SignUp'
 import Contact from './components/Contact'
+import $ from 'jquery'
 
 class App extends React.Component {
 
   componentDidMount () {
-    const script = document.createElement("script");
-    script.type = 'text/js'
-    script.src = "./assets/js/scripts.js";
-    // script.async = true;
-    document.body.appendChild(script);
-    eval(script);
+    this.navbarCollapse();
+    $(window).scroll(this.navbarCollapse);
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
+  navbarCollapse = () => {
+    if ($("#mainNav").offset().top > 100) {
+        $("#mainNav").addClass("navbar-shrink");
+    } else {
+        $("#mainNav").removeClass("navbar-shrink");
+    }
+  };
 
-  render (){
+  render () {
     return (
       <React.Fragment>
         <NavBar/>
