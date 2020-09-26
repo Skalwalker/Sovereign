@@ -1,6 +1,8 @@
 import React from 'react';
+import { useEffect } from 'react';
 
 class NavBar extends React.Component {
+
     render() {
         return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
